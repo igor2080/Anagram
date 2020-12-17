@@ -1,4 +1,5 @@
 ﻿using System;
+using static Anagram.Anagram;
 
 namespace anagram
 {
@@ -6,7 +7,6 @@ namespace anagram
     {
         static void Main(string[] args)
         {
-            
         }
     }
 }
