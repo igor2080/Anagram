@@ -10,7 +10,7 @@ namespace AnagramTests
         public void AreMultipleWordsReversed()
         {
             string input1 = "abcd efgh";
-            string input2 = "a1bcd efg!h";
+            string input2 = "a1bcd efg!h";            
 
             string expectedOutput1 = "dcba hgfe";
             string expectedOutput2 = "d1cba hgf!e";
@@ -38,5 +38,6 @@ namespace AnagramTests
             string actualOutput = ReverseAnagram(input);
             Assert.AreEqual(expectedOutput, actualOutput);
         }
+        
     }
 }

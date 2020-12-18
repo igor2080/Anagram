@@ -10,27 +10,26 @@ namespace Anagram
     {
         public static string ReverseAnagram(string text)
         {
+            if (string.IsNullOrWhiteSpace(text))
+                return "";
+
             string[] splitWords = text.Split(' ');
             for (int i = 0; i < splitWords.Length; i++)
             {
-                char[] currentWordWithoutLetters = Regex.Replace(splitWords[i], @"[a-zA-Z]", " ").ToCharArray();
-                char[] currentWordWithoutNumbers = Regex.Replace(splitWords[i], @"[^a-zA-Z]", "").ToCharArray().Reverse().ToArray();
-                char[] wordReversed = new char[currentWordWithoutLetters.Length];
-
-                currentWordWithoutLetters.CopyTo(wordReversed, 0);
+                char[] wordReversed = Regex.Replace(splitWords[i], @"\p{L}", " ").ToCharArray();//non letters only
+                char[] currentWordJustLetters = Regex.Replace(splitWords[i], @"[\W_\d]", "").ToCharArray().Reverse().ToArray();                
 
                 //run over how many characters there are instead of the entire array
-                for (int j = 0; j < currentWordWithoutNumbers.Length; j++)
+                for (int j = 0; j < currentWordJustLetters.Length; j++)
                 {
                     //insert into the first empty space in the array
-                    wordReversed[Array.IndexOf(wordReversed, ' ')] = currentWordWithoutNumbers[j];
+                    wordReversed[Array.IndexOf(wordReversed, ' ')] = currentWordJustLetters[j];
 
                 }
                 splitWords[i] = new string(wordReversed);
             }
 
             return string.Join(' ', splitWords);
-
         }
     }
 }
