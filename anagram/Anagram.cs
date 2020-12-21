@@ -11,7 +11,7 @@ namespace Anagram
         public static string ReverseAnagram(string text)
         {
             if (string.IsNullOrEmpty(text))
-                throw new ArgumentNullException("text", "The text cannot be empty.");
+                throw new ArgumentNullException(nameof(text), "The text cannot be empty.");
             
 
             string[] splitWords = text.Split(' ',StringSplitOptions.RemoveEmptyEntries);

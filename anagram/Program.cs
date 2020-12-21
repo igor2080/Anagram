@@ -7,7 +7,22 @@ namespace anagram
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(ReverseAnagram(Console.ReadLine()));   
+            
+            string input = "";
+            while (true)
+            {
+                Console.WriteLine("Enter the text to reverse: ");
+                input = Console.ReadLine();
+                if(!string.IsNullOrWhiteSpace(input))
+                {
+                    Console.WriteLine(ReverseAnagram(input));
+                    Console.ReadKey();
+                    break;
+                }
+                Console.WriteLine("The text was empty. Please enter valid text.");
+            }
+            
+
 
         }
     }
