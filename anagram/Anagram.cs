@@ -10,10 +10,11 @@ namespace Anagram
     {
         public static string ReverseAnagram(string text)
         {
-            if (string.IsNullOrWhiteSpace(text))
-                return "";
+            if (string.IsNullOrEmpty(text))
+                throw new ArgumentNullException("text", "The text cannot be empty.");
+            
 
-            string[] splitWords = text.Split(' ');
+            string[] splitWords = text.Split(' ',StringSplitOptions.RemoveEmptyEntries);
             for (int i = 0; i < splitWords.Length; i++)
             {
                 char[] wordReversed = Regex.Replace(splitWords[i], @"\p{L}", " ").ToCharArray();//non letters only

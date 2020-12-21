@@ -7,7 +7,7 @@ namespace anagram
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine(ReverseAnagram(Console.ReadLine()));   
 
         }
     }
